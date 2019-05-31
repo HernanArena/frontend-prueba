@@ -9,10 +9,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 //Routes
 import { PAGES_ROUTING } from './pages-routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
