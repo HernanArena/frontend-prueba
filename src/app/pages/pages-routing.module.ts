@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
 
+import { HomeComponent } from './home/home.component';
 
 const pagesRoutes: Routes = [
     { path: 'dashboard',
@@ -12,6 +13,10 @@ const pagesRoutes: Routes = [
     { path: 'search',
      component: SearchComponent,
      data:{ titulo:"Búsqueda" }
+    },
+    { path: 'inicio',
+     component: HomeComponent,
+     data:{ titulo:"Inicio" }
     },
     {
       path: '',

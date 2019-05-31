@@ -1,6 +1,6 @@
 
-import {UsuarioEffects} from './Usuario.Effects';
+import {UsuarioEffects} from './usuario.effects';
 
 export const AllEffects:any[] =[UsuarioEffects];
 
-export * from  './Usuario.Effects';
+export * from  './usuario.effects';

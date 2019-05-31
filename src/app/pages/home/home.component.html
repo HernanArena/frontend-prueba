@@ -1,0 +1,29 @@
+<section class="index-cards">
+  <div>
+    <a href="vistaUsuario.html" class="card bg-info">
+      <span class="icon"><i class="fa fa-5x fa fa-book"></i></span>
+      <h4>Tengo un código de Error</h4>
+    </a>
+    <div>Si conoce el código de error ingrese aquí para
+        ver las posibles soluciones a su problema</div>
+  </div>
+  <div>
+    <a href="vistaAdministrador.html" class="card bg-danger">
+      <span class="icon"><i class="fa fa-5x fa fa-question-circle-o"></i></span>
+      <h4>No tengo código de Error</h4>
+    </a>
+    <div>Si no aparece un error en pantalla,
+        ingrese aquí para cargar un nuevo ticket</div>
+  </div>
+  <div>
+    <a href="vistaUsuario.html" class="card bg-warning">
+      <span class="icon"><i class="fa fa-5x fa fa-lightbulb-o"></i></span>
+      <h4>Enviar una sugerencia</h4>
+    </a>
+    <div id="tooltipsoftland" >Ingrese aquí para enviar una sugerencia
+        sobre el uso del sistema</div>
+  </div>
+  <button class="btn btn-info" (click)="mostrarlo()">HOLA</button>
+</section>
+
+<div *ngIf="mostrar" id="tooltipfoto" ><img src="assets/images/codigo_error.png"/></div>

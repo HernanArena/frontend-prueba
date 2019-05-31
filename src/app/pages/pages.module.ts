@@ -11,11 +11,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PAGES_ROUTING } from './pages-routing.module';
 import { SearchComponent } from './search/search.component';
 import { ComponentsModule } from '../components/components.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    SearchComponent
+    SearchComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
