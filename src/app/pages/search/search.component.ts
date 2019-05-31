@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.modulos = this.searchservice.getmodulos();
-  }
+  };;
 
   buscar(termino:string){
     console.log(termino);
@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
   }
 
   recuperarobjetos(moduloseleccionado:string){
+    console.log("Entro");
     this.objetos = this.searchservice.getobjetosconfiltro(moduloseleccionado);
   }
 }
