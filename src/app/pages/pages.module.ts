@@ -9,18 +9,23 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 //Routes
 import { PAGES_ROUTING } from './pages-routing.module';
+import { SearchComponent } from './search/search.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    PAGES_ROUTING
+    PAGES_ROUTING,
+    ComponentsModule
   ],
   exports:[
-    DashboardComponent
+    DashboardComponent,
+    SearchComponent
   ]
 })
 export class PagesModule { }
