@@ -1,6 +1,6 @@
 
-<form>
-    <select class="select2 form-control custom-select" style="width: 100%; height:36px;" #moduloseleccionado (change)="recuperarobjetos(moduloseleccionado.value)">
+<form >
+    <select *ngIf="true" class="select2 form-control custom-select" style="width: 100%; height:36px;" #moduloseleccionado (change)="recuperarobjetos(moduloseleccionado.value)">
       <option>Módulo</option>
       <optgroup label="Seleccione un módulo">
           <option *ngFor="let idx of modulos" value="{{idx.Codigo}}" >{{idx.Codigo}} - {{idx.Descripcion}}</option>
@@ -15,4 +15,5 @@
     <div style="margin-top:10px;">
         <app-finder></app-finder>
     </div>
+
 </form>

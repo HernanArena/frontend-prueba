@@ -4,20 +4,10 @@
       <!-- Logo -->
       <!-- ============================================================== -->
       <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">
-              <!-- Logo icon --><b>
-                  <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                  <!-- Dark Logo icon -->
-                  <img src="../assets/images/avatar6.png" alt="homepage" class="dark-logo profile-pic" />
-                  <!-- Light Logo icon -->
-                  <!-- <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
-              </b>
-              <!--End Logo icon -->
-              <!-- Logo text --><span>
-               <!-- dark Logo text -->
-               <img src="../assets/images/logo-sar.png" alt="homepage" class="dark-logo" /></span> </a>
-               <!-- Light Logo text -->
-               <!-- <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /> -->
+          <a class="navbar-brand">
+              <img *ngIf="mostrar" src="assets/images/avatar6.png" alt="homepage" class="dark-logo profile-pic" />
+              <span><img src="assets/images/logo-sar.png" alt="homepage" class="dark-logo" /></span>
+          </a>
       </div>
       <!-- ============================================================== -->
       <!-- End Logo -->
@@ -26,10 +16,10 @@
           <!-- ============================================================== -->
           <!-- toggle and nav items -->
           <!-- ============================================================== -->
-          <ul class="navbar-nav mr-auto">
+          <ul   class="navbar-nav mr-auto">
               <!-- This is  -->
-              <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-              <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+              <li (click)="mostrar = !mostrar" class="nav-item"> <a class="nav-link hidden-md-up waves-effect waves-dark" href="javascript:void(0)" ><i class="ti-menu"></i></a> </li>
+              <li (click)="mostrar = !mostrar" class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark"  href="javascript:void(0)" ><i class="ti-menu"></i></a> </li>
               <li class="nav-item hidden-sm-down"></li>
           </ul>
           <!-- ============================================================== -->
@@ -50,12 +40,12 @@
             <!-- ============================================================== -->
             <!-- Profile -->
             <!-- ============================================================== -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar1.png" alt="user" class="profile-pic" /></a>
+            <li class="nav-item ">
+                <a class="nav-link waves-effect waves-dark" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/avatar1.png" alt="user" class="profile-pic" /></a>
             </li>
-            <li>
-              <a href="" class="nav-link dropdown-toggle waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span><i class="fa fa-sign-out m-r-xs"></i>Salir</span>
+            <li class="nav-item">
+              <a class="nav-link waves-effect waves-dark" (click)="Logout()">
+                <span><i class="fa fa-1.5x fa-sign-out"></i>Salir</span>
               </a>
             </li>
         </ul>
@@ -65,11 +55,3 @@
 <!-- ============================================================== -->
 <!-- End Topbar header -->
 <!-- ============================================================== -->
-
-
-
-<!-- <div class="navbar">
-  <div class="navbar-image">
-
-  </div>
-</div> -->

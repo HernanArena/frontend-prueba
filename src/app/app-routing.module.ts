@@ -11,6 +11,6 @@ const ROUTES: Routes = [
       component: PagesComponent,
       loadChildren: './pages/pages.module#PagesModule'
     },
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: '/login' }
 ];
 export const APP_ROUTING = RouterModule.forRoot(ROUTES,{useHash:true});

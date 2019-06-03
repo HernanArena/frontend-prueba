@@ -6,23 +6,23 @@ import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 
 const pagesRoutes: Routes = [
-    { path: 'dashboard',
+    { path: 'escritorio',
      component: DashboardComponent,
      data:{ titulo:"Escritorio" }
     },
-    { path: 'search',
+    { path: 'busqueda',
      component: SearchComponent,
-     data:{ titulo:"Búsqueda" }
+     data:{ titulo:"Búsqueda avanzada" }
     },
-    { path: 'inicio',
+    { path: 'panel',
      component: HomeComponent,
-     data:{ titulo:"Inicio" }
+     data:{ titulo:"Panel de consulta" }
     },
     {
       path: '',
       pathMatch: 'full',
       // canActivate:[VerificaTokenGuard],
-      redirectTo: '/search'
+      redirectTo: '/panel'
     }
 ];
 export const PAGES_ROUTING = RouterModule.forChild(pagesRoutes);

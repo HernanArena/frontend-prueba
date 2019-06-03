@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       this.loading = usuario.loading;
       this.error = usuario.error;
       if(this.loaded === true){
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/panel']);
       }
     })
   }

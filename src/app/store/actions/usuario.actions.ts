@@ -6,8 +6,6 @@ export const CARGAR_USUARIO_FAIL = '[Login Usuario] Cargar usuario FAIL';
 export const CARGAR_USUARIO_SUCCESS = '[Login Usuario] Cargar usuario SUCCESS';
 
 export const LIMPIAR_USUARIO = '[Logout Usuario] Limpiar usuario';
-export const LIMPIAR_USUARIO_FAIL = '[Logout Usuario] Limpiar usuario FAIL';
-export const LIMPIAR_USUARIO_SUCCESS = '[Logout Usuario] Limpiar usuario SUCCESS';
 
 //Login
 export class CargarUsuario implements Action{
@@ -28,20 +26,11 @@ export class CargarUsuarioSuccess implements Action{
 //Logout
 export class LimpiarUsuario implements Action{
   readonly type = LIMPIAR_USUARIO;
+  constructor(){}
 }
 
-export class LimpiarUsuarioFail implements Action{
-  readonly type = LIMPIAR_USUARIO_FAIL;
-  constructor(public payload:any){}
-}
-
-export class LimpiarUsuarioSuccess implements Action{
-  readonly type = LIMPIAR_USUARIO_SUCCESS;
-}
 
 export type usuarioAcciones = CargarUsuario |
                                CargarUsuarioFail|
                                CargarUsuarioSuccess|
-                               LimpiarUsuario|
-                               LimpiarUsuarioFail|
-                               LimpiarUsuarioSuccess;
+                               LimpiarUsuario;

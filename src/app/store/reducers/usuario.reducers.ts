@@ -44,27 +44,10 @@ export function usuarioReducer(state = estadoInicial, action: fromUsuario.usuari
       };
       case fromUsuario.LIMPIAR_USUARIO:
         return {
-          ...state,
-          loading: true,
-          error:null
-        };
-      case fromUsuario.LIMPIAR_USUARIO_SUCCESS:
-        return {
           user: null,
           loaded: false,
           loading: false,
           error: null
-        };
-      case fromUsuario.LIMPIAR_USUARIO_FAIL:
-        return {
-          ...state,
-          loaded: false,
-          loading: false,
-          error: {
-            status: action.payload.status,
-            message: action.payload.message,
-            url: action.payload.url
-          }
         };
     default:
       return state;

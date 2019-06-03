@@ -23,15 +23,4 @@ export class UsuarioEffects {
             catchError(error => of(new usuarioActions.CargarUsuarioFail(error)))
         ))
     )
-  // LimpiarUSuario$ = this.actions$
-  //   .pipe(
-  //     ofType(usuarioActions.LIMPIAR_USUARIO),
-  //     switchMap(
-  //       (action:usuarioActions.LimpiarUsuario) => this._us.logout()
-  //       .pipe(
-  //           map((user:Usuario) => new usuarioActions.CargarUsuarioSuccess(user)),
-  //           catchError(error => of(new usuarioActions.CargarUsuarioFail(error)))
-  //       ))
-  //   )
-
 }

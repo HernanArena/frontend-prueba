@@ -1,6 +1,6 @@
 <section class="index-cards">
   <div>
-    <a href="vistaUsuario.html" class="card bg-info">
+    <a class="card bg-info">
       <span class="icon"><i class="fa fa-5x fa fa-book"></i></span>
       <h4>Tengo un código de Error</h4>
     </a>
@@ -8,7 +8,7 @@
         ver las posibles soluciones a su problema</div>
   </div>
   <div>
-    <a href="vistaAdministrador.html" class="card bg-danger">
+    <a [routerLink] = "['/busqueda']"  class="card bg-danger">
       <span class="icon"><i class="fa fa-5x fa fa-question-circle-o"></i></span>
       <h4>No tengo código de Error</h4>
     </a>
@@ -16,7 +16,7 @@
         ingrese aquí para cargar un nuevo ticket</div>
   </div>
   <div>
-    <a href="vistaUsuario.html" class="card bg-warning">
+    <a class="card bg-warning">
       <span class="icon"><i class="fa fa-5x fa fa-lightbulb-o"></i></span>
       <h4>Enviar una sugerencia</h4>
     </a>
