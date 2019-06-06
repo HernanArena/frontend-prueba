@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
 
 import { HomeComponent } from './home/home.component';
+import { ResultsComponent } from './results/results.component';
 
 const pagesRoutes: Routes = [
     { path: 'escritorio',
@@ -17,6 +18,10 @@ const pagesRoutes: Routes = [
     { path: 'panel',
      component: HomeComponent,
      data:{ titulo:"Panel de consulta" }
+    },
+    { path: 'resultados',
+     component: ResultsComponent,
+     data:{ titulo:"Busqueda resultados" }
     },
     {
       path: '',

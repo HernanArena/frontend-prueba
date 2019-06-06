@@ -12,15 +12,18 @@ export class UsuarioEffects {
               public _us:UsuarioService){
 
   }
-  @Effect()
-  cargarUSuario$ = this.actions$
-    .pipe(
-      ofType(usuarioActions.CARGAR_USUARIO),
-      switchMap(
-        (action:usuarioActions.CargarUsuario) => this._us.login(action.uid,action.pwd)
-        .pipe(
-            map((user:Usuario) => new usuarioActions.CargarUsuarioSuccess(user)),
-            catchError(error => of(new usuarioActions.CargarUsuarioFail(error)))
-        ))
-    )
+  // @Effect()
+  // cargarUSuario$ = this.actions$
+  //     .pipe(
+  //       ofType(usuarioActions.CARGAR_USUARIO),
+  //       switchMap(
+  //         (action:usuarioActions.CargarUsuario) => this._us.login(action.uid,action.pwd)
+  //         .pipe(
+  //           map((user:Usuario) => new usuarioActions.CargarUsuarioSuccess(user)),
+  //           catchError(error => of(new usuarioActions.CargarUsuarioFail(error))
+  //         )
+  //       )
+  //     )
+  //   );
+
 }

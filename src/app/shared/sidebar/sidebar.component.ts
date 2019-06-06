@@ -18,6 +18,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.store.select('usuario').subscribe((data:fromUsuario.UsuarioState)=>{
+      console.log(data);
       this.usuario = data.user;
      });
      // this._sidebar.cargarMenu();

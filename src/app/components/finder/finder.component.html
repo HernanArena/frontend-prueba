@@ -1,6 +1,6 @@
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="Ingrese un término de busqueda..." aria-label="Búsqueda" aria-describedby="basic-addon2" #termino >
-  <div class="input-group-append">
-    <label (click)="buscar(termino.value)" class="btn btn-outline-primary" id="basic-addon2">Buscar</label>
-  </div>
+  <input type="text" class="form-control" placeholder="Ingrese un término de busqueda..." #termino>
+  <span class="input-group-btn">
+    <button class="btn btn-info" (click) ="navegar()" type="button">Buscar</button>
+  </span>
 </div>

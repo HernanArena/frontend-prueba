@@ -11,7 +11,7 @@
                   <a class="waves-effect waves-dark hide-menu" href="#" aria-expanded="false">
                     <img src="../assets/images/avatar1.png" alt ="empresa"/></a></li>
               <li class="user-profile hide-menu">
-                  <a class="waves-effect waves-dark" >{{usuario.empresa.name}}</a></li>
+                  <a class="waves-effect waves-dark" >{{usuario.empresa.name|| ''}}</a></li>
               <li class="nav-devider"></li>
               <li class="nav-small-cap">PERSONAL</li>
               <li *ngFor="let menu of _sidebar.menu">

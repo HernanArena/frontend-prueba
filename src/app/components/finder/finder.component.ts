@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-finder',
@@ -8,7 +9,8 @@ import { SearchService } from 'src/app/services/search/search.service';
 })
 export class FinderComponent implements OnInit {
   partes:any;
-  constructor(private searchservice:SearchService) { }
+  constructor(private searchservice:SearchService,
+              private router:Router) { }
 
   ngOnInit() {
   }
@@ -16,6 +18,9 @@ export class FinderComponent implements OnInit {
   buscar(termino:string){
     console.log(termino);
     this.partes = this.searchservice.getpartesconfiltro(termino);
+  }
+  navegar(){
+    this.router.navigate(['/resultados']);
   }
 
 }

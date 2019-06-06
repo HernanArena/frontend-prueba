@@ -23,7 +23,8 @@ import { LoadingComponent } from './loading/loading.component';
     NavbarComponent,
     SidebarComponent,
     BreadcrumbsComponent,
-    PagenofoundComponent
+    PagenofoundComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

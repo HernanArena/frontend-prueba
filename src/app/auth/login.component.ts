@@ -1,37 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.reducer';
-import { Usuario } from '../models/usuario.model';
-import * as fromUsuario from '../store/actions';
-import { Router } from '@angular/router';
+import { UsuarioService } from '../services';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  user:Usuario;
+export class LoginComponent implements OnInit, OnDestroy {
   loading:boolean;
-  loaded:boolean;
-  error:string;
+  subscription:Subscription;
 
   constructor(public store:Store<AppState>,
-              public router:Router) { }
+              public _us:UsuarioService ) { }
 
   ngOnInit() {
+    this.subscription = this.store.select('ui').subscribe( ui => this.loading = ui.isLoading);
   }
   onSubmit(data:any){
-    this.store.dispatch(new fromUsuario.CargarUsuario(data.usuario,data.password));
-    this.store.select('usuario').subscribe( usuario=>{
-      this.user = usuario.user;
-      this.loaded = usuario.loaded;
-      this.loading = usuario.loading;
-      this.error = usuario.error;
-      if(this.loaded === true){
-        this.router.navigate(['/panel']);
-      }
-    })
+    this._us.login(data.usuario,data.password);
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

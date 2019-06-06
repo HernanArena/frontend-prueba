@@ -3,15 +3,15 @@ import * as fromUsuario from '../actions/usuario.actions';
 
 export interface UsuarioState{
   user: Usuario;
-  loaded: boolean;
-  loading: boolean;
+  // loaded: boolean;
+  // loading: boolean;
   error: any;
 }
 
 const estadoInicial:UsuarioState =  {
   user: null,
-  loaded: false,
-  loading: false,
+  // loaded: false,
+  // loading: false,
   error: null
 };
 
@@ -20,33 +20,35 @@ export function usuarioReducer(state = estadoInicial, action: fromUsuario.usuari
     case fromUsuario.CARGAR_USUARIO:
       return {
         ...state,
-        loading: true,
-        error:null
-      };
-    case fromUsuario.CARGAR_USUARIO_SUCCESS:
-      return {
-        ...state,
-        loaded:true,
-        loading:false,
-        error: false,
+        // loaded:true,
+        // loading: false,
+        error:null,
         user:{...action.usuario}
       };
-    case fromUsuario.CARGAR_USUARIO_FAIL:
-      return {
-        ...state,
-        loaded: false,
-        loading: false,
-        error: {
-          status: action.payload.status,
-          message: action.payload.message,
-          url: action.payload.url
-        }
-      };
+    // case fromUsuario.CARGAR_USUARIO_SUCCESS:
+    //   return {
+    //     ...state,
+    //     loaded:true,
+    //     loading:false,
+    //     error: null,
+    //     user:{...action.usuario}
+    //   };
+    // case fromUsuario.CARGAR_USUARIO_FAIL:
+    //   return {
+    //     ...state,
+    //     loaded: false,
+    //     loading: false,
+    //     error: {
+    //       status: action.payload.status,
+    //       message: action.payload.message,
+    //       url: action.payload.url
+      //   }
+      // };
       case fromUsuario.LIMPIAR_USUARIO:
         return {
           user: null,
-          loaded: false,
-          loading: false,
+          // loaded: false,
+          // loading: false,
           error: null
         };
     default:
