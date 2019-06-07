@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
   loading:boolean;
   subscription:Subscription;
 
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   onSubmit(data:any){
     this._us.login(data.usuario,data.password);
   }
-  ngOnDestroy(){
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy(){
+  //   this.subscription.unsubscribe();
+  // }
 }

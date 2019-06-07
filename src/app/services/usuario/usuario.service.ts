@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {URL_SERVICES} from '../../config/config';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Store } from '@ngrx/store';
@@ -15,12 +15,15 @@ import { ActivarLoadingAction, DesactivarLoadingAction, CargarUsuario } from 'sr
 })
 export class UsuarioService {
   private subscription:Subscription = new Subscription();
-  private usuario:Usuario;
-  private urlAPI = URL_SERVICES;
+  usuario:Usuario;
+  urlAPI = URL_SERVICES;
+  token:string;
 
   constructor(private http:HttpClient,
               public store:Store<AppState>,
-              private router:Router) { }
+              private router:Router) {
+    this.cargarStorage();
+  }
 
   login(uid:string,pwd:string){
     this.store.dispatch(new ActivarLoadingAction());
@@ -28,28 +31,28 @@ export class UsuarioService {
            'uid':`${uid}`,
            'pwd':`${pwd}`
          });
-    console.log("Hola")
-    this.http.get(`${this.urlAPI}/login`,{headers})
-         .pipe(map((resp:any) =>{
-           console.log(resp);
-           this.router.navigate(['/']);
-           this.store.dispatch(new DesactivarLoadingAction());
-           this.store.dispatch(new CargarUsuario(resp.usuario));
-         }))
-         //  catchError( (error:any) => {
-         //   this.store.dispatch(new DesactivarLoadingAction());
-         // });
+      return this.http.get(`${this.urlAPI}/login`,{headers})
+           .toPromise()
+           .then((usuario:Usuario)=>{
+
+             if(usuario.error){
+               console.log(usuario);
+             }else{
+               this.store.dispatch(new CargarUsuario(usuario));
+               if(usuario.token){
+                 this.guardarStorage(usuario.token,usuario);
+                 this.store.dispatch(new DesactivarLoadingAction());
+                 this.router.navigate(['/']);
+               }
+             }
+           });
   }
 
-  guardarStorage(usuario:Usuario){
+  guardarStorage(token:string,usuario:Usuario){
+    localStorage.setItem('token',token);
     localStorage.setItem('usuario',JSON.stringify(usuario));
-
-    this.usuario.token = usuario.token;
-    this.usuario.username = usuario.username;
-    this.usuario.empresa.name = usuario.empresa.name;
-    this.usuario.empresa.logo = usuario.empresa.logo;
-    this.usuario.actions = usuario.actions;
-    this.usuario.lastLogin = usuario.lastLogin;
+    this.usuario = usuario;
+    this.token = token;
   }
   renuevaToken(){
     let url = URL_SERVICES + '/login/renuevatoken';
@@ -87,7 +90,7 @@ export class UsuarioService {
       .pipe(map((resp:any)=>{
         if(usuario.username === this.usuario.username){
           let usuarioDB:Usuario = resp.usuario;
-          this.guardarStorage(usuarioDB);
+          this.guardarStorage(this.token,usuarioDB);
         }
         return true;
       }));

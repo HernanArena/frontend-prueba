@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarService } from '../../services';
+import { SidebarService, UsuarioService } from '../../services';
 import { Usuario } from 'src/app/models/usuario.model';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
@@ -14,13 +14,14 @@ export class SidebarComponent implements OnInit {
   usuario:Usuario;
 
   constructor(private store:Store<AppState>,
-              public _sidebar:SidebarService) { }
+              public _sidebar:SidebarService,
+             public _us:UsuarioService) { }
 
   ngOnInit() {
     this.store.select('usuario').subscribe((data:fromUsuario.UsuarioState)=>{
-      console.log(data);
       this.usuario = data.user;
      });
+    this.usuario = this._us.usuario;
      // this._sidebar.cargarMenu();
      this._sidebar.menu;
   }

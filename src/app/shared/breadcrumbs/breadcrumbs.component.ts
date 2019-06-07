@@ -11,27 +11,35 @@ import { Meta, MetaDefinition } from '@angular/platform-browser';
 export class BreadcrumbsComponent {
   titulo:string;
 
-  constructor(private router:Router,
+  constructor(public router:Router,
               private meta:Meta) {
+                console.log("!0");
     this.getDataRoute()
     .subscribe( data =>{
-      this.titulo = data.titulo;
-      const metaTag:MetaDefinition = {
-        name: 'Description',
-        content: this.titulo
-      };
-      this.meta.updateTag(metaTag);
+      console.log("!2");
+       console.log(data.titulo);
+       if(data.titulo){
+         this.titulo = data.titulo;
+        const metaTag:MetaDefinition = {
+          name: 'Description',
+          content: this.titulo
+        };
+        this.meta.updateTag(metaTag);
+       }
+
     });
 
   }
   ngOnInit(){
   }
   getDataRoute(){
+    console.log("!1");
     return this.router.events.pipe(
       filter(evento => evento instanceof ActivationEnd),
       filter((evento:ActivationEnd) => evento.snapshot.firstChild ==null),
       map((evento:ActivationEnd) => evento.snapshot.data)
     )
+
   }
 
 }

@@ -11,10 +11,10 @@ export class PagesComponent implements OnInit {
   loaded:boolean = false;
 
   constructor(public store:Store<AppState>) {
-    this.store.select('ui').subscribe(ui=>this.loaded = ui.isLoading);
   }
   ngOnInit() {
     init_plugin();
+    this.store.select('ui').subscribe(ui=> this.loaded = ui.isLoading);
   }
 
 }

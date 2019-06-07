@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 //@Ngrx
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store/app.reducer';
@@ -27,6 +27,7 @@ import { APP_ROUTING } from './app-routing.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +40,10 @@ import { APP_ROUTING } from './app-routing.module';
     APP_ROUTING,
     FormsModule,
     SharedModule,
+    RouterModule,
     ServicesModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot(AllEffects),
+    // EffectsModule.forRoot(AllEffects),
     StoreDevtoolsModule.instrument({
      maxAge: 25, // Retains last 25 states
      logOnly: environment.production, // Restrict extension to log-only mode
