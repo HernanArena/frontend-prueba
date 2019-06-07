@@ -11,21 +11,23 @@ export class SearchComponent implements OnInit {
   partes:any = "";
   modulos:any[] = [];
   objetos:any[] = [];
+  recuperatermino:boolean;
+
+  _moduloseleccionado:string ="";
+  _objetoseleccionado:any = "";
+  _versionseleccionada:any = "";
 
 
-  constructor(private searchservice:SearchService) { }
-
-  ngOnInit() {
+  constructor(private searchservice:SearchService) {
+    this.recuperatermino = false;
     this.modulos = this.searchservice.getmodulos();
-  };;
-
-  buscar(termino:string){
-    console.log(termino);
-    this.partes = this.searchservice.getpartesconfiltro(termino);
+    localStorage.setItem('default', "false");//define si se ve el termino por defecto en el buscador
   }
 
-  recuperarobjetos(moduloseleccionado:string){
-    console.log("Entro");
-    this.objetos = this.searchservice.getobjetosconfiltro(moduloseleccionado);
+  ngOnInit() {
+  };
+
+  recuperarobjetos(modulo:string){
+    this.objetos = this.searchservice.getobjetosconfiltro(modulo);
   }
 }

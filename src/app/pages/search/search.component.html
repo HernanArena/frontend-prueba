@@ -3,13 +3,23 @@
       <div class="form-group row">
           <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Versión</label>
           <div class="col-sm-9">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Versión">
+              <input type="text" class="form-control"
+              name = "versionseleccionada"
+              id="inputEmail3"
+              placeholder="Versión"
+              [(ngModel)] = "_versionseleccionada"
+              #versionseleccionada = "ngModel">
           </div>
       </div>
       <div class="form-group row">
           <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Módulo</label>
           <div class="col-sm-9">
-            <select *ngIf="true" class="select2 form-control custom-select" style="width: 100%; height:36px;" #moduloseleccionado (change)="recuperarobjetos(moduloseleccionado.value)">
+            <select *ngIf="true" class="select2 form-control custom-select"
+                    name = "moduloseleccionado"
+                    style="width: 100%; height:36px;"
+                    (change)="recuperarobjetos(moduloseleccionado.value)"
+                    [(ngModel)]="_moduloseleccionado"
+                    #moduloseleccionado="ngModel">
               <input type="text" name="" value="">
               <optgroup label="Seleccione un módulo">
                   <option *ngFor="let idx of modulos" value="{{idx.Codigo}}" >{{idx.Codigo}} - {{idx.Descripcion}}</option>
@@ -20,7 +30,11 @@
       <div class="form-group row">
           <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">Objeto</label>
           <div class="col-sm-9">
-            <select class="select2 form-control custom-select" style="width: 100%; height:36px; margin-top: 10px">
+            <select class="select2 form-control custom-select"
+            name="objetoseleccionado"
+            style="width: 100%; height:36px; margin-top: 10px"
+            [(ngModel)]="_objetoseleccionado"
+            #objetoseleccionado="ngModel">
               <option>Objeto</option>
               <optgroup label="Seleccione un objeto del sistema">
                   <option *ngFor="let idx of objetos" value="{{idx.Codigo}}">{{idx.Codigo}} - {{idx.Descripcion}}</option>
@@ -37,7 +51,7 @@
       <div class="form-group row">
           <label for="inputPassword3" class="col-sm-3 text-right control-label col-form-label"></label>
           <div class="col-sm-9">
-              <app-finder></app-finder>
+              <app-finder [modulo] = "_moduloseleccionado" [objeto] = "_objetoseleccionado" [version] = "_versionseleccionada"></app-finder>
           </div>
       </div>
 

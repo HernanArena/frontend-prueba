@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  datosbusqueda:any;
+  recuperatermino:boolean;
+
+  constructor() {
+    localStorage.setItem('default', "true");//define si se ve el termino por defecto en el buscador
+    console.log('Logueo desde el constructor: ' + this.recuperatermino);
+  }
 
   ngOnInit() {
   }
+
 
 }
