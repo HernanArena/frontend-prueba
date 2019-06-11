@@ -1,6 +1,9 @@
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="Ingrese un término de busqueda..." #termino>
+  <input type="text" class="form-control" placeholder="Ingrese un término de busqueda..."
+  name = "termino"
+  [(ngModel)] = "_termino"
+  #termino = "ngModel">
   <span class="input-group-btn">
-    <button class="btn btn-info" (click) ="navegar()" type="button">Buscar</button>
+    <button class="btn btn-info" (click) ="navegararesultsyguardarstorage()" type="button">Buscar</button>
   </span>
 </div>
