@@ -13,11 +13,8 @@ export class BreadcrumbsComponent {
 
   constructor(public router:Router,
               private meta:Meta) {
-                console.log("!0");
     this.getDataRoute()
     .subscribe( data =>{
-      console.log("!2");
-       console.log(data.titulo);
        if(data.titulo){
          this.titulo = data.titulo;
         const metaTag:MetaDefinition = {
@@ -33,7 +30,6 @@ export class BreadcrumbsComponent {
   ngOnInit(){
   }
   getDataRoute(){
-    console.log("!1");
     return this.router.events.pipe(
       filter(evento => evento instanceof ActivationEnd),
       filter((evento:ActivationEnd) => evento.snapshot.firstChild ==null),
